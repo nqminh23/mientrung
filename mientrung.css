@@ -1,0 +1,229 @@
+/* Reset các thuộc tính mặc định của trình duyệt */
+* {
+  margin: 0; /* Loại bỏ margin mặc định của tất cả các phần tử */
+  padding: 0; /* Loại bỏ padding mặc định của tất cả các phần tử */
+  box-sizing: border-box; /* Đảm bảo padding và border được tính vào tổng kích thước của phần tử */
+}
+
+/* Thay đổi font mặc định */
+body {
+  font-family: Arial, sans-serif; /* Đặt font chữ mặc định cho toàn bộ trang */
+  line-height: 1.6; /* Tăng khoảng cách giữa các dòng văn bản để dễ đọc */
+  color: #333; /* Đặt màu chữ cho toàn bộ trang */
+}
+
+/* Header */
+header {
+  position: relative; /* Đặt header ở vị trí tương đối để có thể dùng các thuộc tính vị trí tuyệt đối bên trong */
+  text-align: center; /* Căn giữa nội dung trong header */
+  color: #ffea00; /* Màu chữ của header */
+  width: 100%; /* Đảm bảo header chiếm toàn bộ chiều rộng của phần tử chứa */
+}
+header nav {
+  background-color: rgb(255, 255, 255);
+  padding: 24px 20px;
+}
+
+/* Phần banner */
+.banner {
+  position: relative; /* Đặt phần banner ở vị trí tương đối để các phần tử bên trong có thể được căn chỉnh */
+  width: 100%; /* Đảm bảo banner chiếm toàn bộ chiều rộng của phần tử chứa */
+  height: 520px; /* Đặt chiều cao cố định cho 3 banner tính từ trên xuống số càng lớn thì càng dịch xuống dưới */
+}
+
+/* Phần trình chiếu ảnh */
+.slides {
+  display: flex; /* Sử dụng Flexbox để xếp các slide theo hàng ngang */
+  transition: transform 0.1s ease-in-out; /* Thêm hiệu ứng chuyển tiếp mượt mà khi thay đổi slide */
+}
+
+/* Mỗi slide */
+.slide {
+  width: 100%; /* Đặt chiều rộng mỗi slide bằng với chiều rộng của phần tử chứa */
+  height: 530px; /* Đặt chiều cao mỗi slide bằng với chiều cao của phần tử chứa */
+  object-fit: cover; /* Đảm bảo ảnh được cắt và lấp đầy khu vực mà không bị biến dạng */
+}
+
+/* Nút điều hướng slide trước và tiếp theo */
+.prev,
+.next {
+  position: absolute; /* Đặt nút ở vị trí tuyệt đối so với phần tử chứa của nó (banner) */
+  top: 50%; /* Đặt nút ở giữa chiều cao của phần tử chứa */
+  width: 50px; /* Chiều rộng của nút */
+  height: 50px; /* Chiều cao của nút */
+  background-color: rgba(0, 0, 0, 0.5); /* Nền mờ cho nút */
+  color: #fff; /* Màu chữ của nút */
+  border: none; /* Loại bỏ viền của nút */
+  font-size: 30px; /* Kích thước chữ của nút */
+  cursor: pointer; /* Hiển thị con trỏ chuột như một nút bấm khi di chuột qua */
+  transform: translateY(
+    -50%
+  ); /* Dịch chuyển nút lên một nửa chiều cao của nó để căn giữa dọc */
+  z-index: 1; /* Đảm bảo nút nằm trên cùng của các phần tử khác */
+}
+
+.prev {
+  left: 10px; /* Đặt nút "Trước" cách lề trái 10px */
+  border-radius: 10px; /* Bo tròn viền góc nút "Trước" */
+}
+
+.next {
+  right: 10px; /* Đặt nút "Tiếp theo" cách lề phải 10px */
+  border-radius: 10px; /* Bo tròn viền góc nút "Sau" */
+}
+
+/* Phần giới thiệu */
+.intro {
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  border: 2px solid #f6ff00; /* Đường viền 2px, kiểu solid, màu trắng */
+  padding: 10px; /* Khoảng cách giữa nội dung và viền */
+  margin: auto; /* Khoảng cách giữa phần tử này và các phần tử khác */
+  background-color: #ff0000; /* Màu nền nhẹ cho phần tử */
+  border-radius: 8px; /* Bo tròn các góc của khung */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ cho khung */
+  font-size: 18px;
+}
+.intro a {
+  display: inline-block; /* Để áp dụng padding và border cho các liên kết */
+  text-decoration: none; /* Xóa gạch chân của liên kết */
+  color: yellow; /* Màu chữ của liên kết */
+  margin: 0 15px; /* Khoảng cách giữa các liên kết */
+  padding: 8px 16px; /* Khoảng cách giữa nội dung liên kết và đường viền */
+  border: 2px solid yellow; /* Đường viền của liên kết */
+  border-radius: 4px; /* Bo tròn các góc của liên kết */
+  transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển màu mượt mà khi hover */
+}
+
+.intro a:hover {
+  background-color: yellow; /* Màu nền khi di chuột qua liên kết */
+  color: red; /* Màu chữ khi di chuột qua liên kết */
+}
+
+.intro h1 {
+  font-size: 2.5em; /* Kích thước chữ của tiêu đề trong phần giới thiệu */
+  margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+}
+
+/* Các vùng miền */
+.regions {
+  display: flex; /* Sử dụng Flexbox để xếp các vùng miền theo hàng ngang */
+  justify-content: space-around; /* Phân phối các vùng miền đều trên chiều ngang */
+  flex-wrap: wrap; /* Cho phép các vùng miền tự động xuống dòng nếu không đủ không gian */
+  padding: 20px; /* Thêm khoảng cách bên trong của vùng chứa các vùng miền */
+}
+
+/* Mỗi vùng miền */
+.region {
+  position: relative; /* Đặt vùng miền ở vị trí tương đối để các phần tử bên trong có thể được căn chỉnh */
+  width: 30%; /* Chiều rộng của mỗi vùng miền bằng 30% chiều rộng của phần tử chứa */
+  margin: 10px 0; /* Khoảng cách trên và dưới của mỗi vùng miền */
+  overflow: hidden; /* Ẩn phần bên ngoài chiều rộng và chiều cao của vùng miền */
+  border-radius: 10px; /* Bo tròn các góc của vùng miền */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Thêm bóng cho vùng miền */
+  transition: transform 0.3s, box-shadow 0.3s; /* Thêm hiệu ứng chuyển tiếp khi thay đổi kích thước hoặc bóng */
+}
+
+.region img {
+  width: 100%; /* Đảm bảo ảnh lấp đầy chiều rộng của vùng miền */
+  height: 270px; /* Đặt chiều cao cố định cho ảnh */
+  transition: transform 0.3s; /* Thêm hiệu ứng chuyển tiếp khi thay đổi kích thước của ảnh */
+}
+
+.region:hover {
+  transform: scale(1.05); /* Phóng to vùng miền khi di chuột qua */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Tăng cường bóng của vùng miền khi di chuột qua */
+}
+
+.region:hover img {
+  transform: scale(1.1); /* Phóng to ảnh khi di chuột qua vùng miền */
+}
+
+/* Tiêu đề của vùng miền */
+.region h2 {
+  position: absolute; /* Đặt tiêu đề ở vị trí tuyệt đối so với vùng miền */
+  bottom: 20px; /* Đặt tiêu đề cách lề dưới của vùng miền 20px */
+  left: 20px; /* Đặt tiêu đề cách lề trái của vùng miền 20px */
+  color: #fff; /* Màu chữ của tiêu đề */
+  font-size: 1.5em; /* Kích thước chữ của tiêu đề */
+}
+
+/* Nút "Miền Bắc, Miền Trung, Miền Nam" */
+.learn-more {
+  display: block; /* Hiển thị nút như một phần tử khối để có thể căn giữa dễ dàng */
+  padding: 10px; /* Thêm khoảng cách bên trong của nút */
+  margin: 20px; /* Thêm khoảng cách bên ngoài của nút */
+  text-align: center; /* Căn giữa văn bản trong nút */
+  background-color: #ff4848; /* Màu nền đỏ cho nút */
+  color: #fff; /* Màu chữ trắng cho nút */
+  text-decoration: none; /* Loại bỏ gạch chân của liên kết */
+  border-radius: 150px; /* Bo tròn các góc của nút để tạo hình dạng tròn */
+  transition: background-color 0.3s; /* Thêm hiệu ứng chuyển tiếp khi thay đổi màu nền */
+  font-size: 20px; /* Kích thước chữ của nút */
+}
+
+.learn-more:hover {
+  background-color: #ff0000; /* Thay đổi màu nền khi di chuột qua nút */
+}
+
+/* Footer */
+.footer {
+  text-align: center; /* Căn giữa nội dung trong footer */
+  padding: 10px; /* Thêm khoảng cách bên trong của footer */
+  background: #b0aeae; /* Màu nền nhạt cho footer */
+}
+
+/* Tiêu đề H1 */
+h1 {
+  color: black; /* màu chữ tiêu đề */
+  font-family: "Bungee Tint", sans-serif; /* font chữ tiêu đề được liên kết từ google font */
+  font-weight: 400; /* kích thước chữ */
+  font-size: 50px; /* cỡ chữ tiêu đề */
+  margin-top: 10px; /* căn lề tiêu đề dịch xuống */
+}
+
+/* Đoạn văn */
+p {
+  margin-right: 200px; /* Khoảng cách bên phải của đoạn văn */
+  margin-left: 200px; /* Khoảng cách bên trái của đoạn văn */
+  font-size: larger; /* Kích thước chữ lớn hơn bình thường */
+  text-align: justify; /* Căn chỉnh văn bản để trải rộng đều từ lề trái đến lề phải, với các khoảng cách giữa các từ được điều chỉnh để tạo ra các đường viền thẳng hàng. */
+}
+.star {
+  width: 40px; /* Điều chỉnh kích thước biểu tượng sao */
+  height: 40px;
+  fill: gold; /* Màu sắc của sao */
+  margin-left: 700px;
+}
+
+/*trang vùng miền*/
+.main h1 {
+  font-size: 200%;
+  text-align: center;
+  margin-bottom: 100px;
+  margin-top: 60px;
+}
+
+.main img {
+  height: 500px;
+  margin-left: 200px;
+  margin-top: 30px;
+}
+.main h2 {
+  margin-left: 200px;
+  margin-top: 50px;
+}
+.img_dong {
+  margin-left: 200px;
+}
+img {
+  width: 865px;
+  height: 520px;
+}
+
+h4 {
+  text-align: center;
+}
+.cuoi {
+  margin-top: 70px;
+}
